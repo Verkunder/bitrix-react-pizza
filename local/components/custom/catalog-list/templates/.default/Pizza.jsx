@@ -13,6 +13,21 @@ const Pizza = () => {
     const [status, setStatus] = useState(true)
     const [catalog, setCaatalog] = useState(Catalog)
     const [isModal, setModal] = useState(false);
+    const [order, setOrder] = useState(Basket)
+
+    const addBusket = (name, size, price, icon, img) => {
+        const sizeBusket = order.length + 1
+        const newOrder = order.push({
+            id: sizeBusket,
+            name: name,
+            size: size,
+            price: price,
+            count: 1,
+            icon: icon,
+            img: img
+        })
+        openModal()
+    }
 
     const filt = (key) => {
         if (key === 'all') {
@@ -77,11 +92,12 @@ const Pizza = () => {
         <div style={{display: load === true ? 'none' : ''}}>
         <Filter filt={filt} />
         <div className="catalog-pizza-card">
-            {catalog.map(({name, description, size, price, icon, img, pizzaSize}) => <PizzaCatalogItem openModal={openModal} pizzaSize={pizzaSize} size={size} name={name} icon={icon} price={price} description={description} img={img} />)}
+            {catalog.map(({name, description, size, price, icon, img, pizzaSize}) => <PizzaCatalogItem addBusket={addBusket} openModal={openModal} pizzaSize={pizzaSize} size={size} name={name} icon={icon} price={price} description={description} img={img} />)}
         </div>
         </div>
         <Modal isVisible={isModal}
                onClose={() => setModal(false)}
+               basket={order}
         />
     </>
     );

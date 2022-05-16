@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import SizeBtn from "./SizeBtn";
 
-const PizzaCatalogItem = ({name, description, size, price, icon, img, pizzaSize, openModal}) => {
+const PizzaCatalogItem = ({name, description, size, price, icon, img, pizzaSize, addBusket, count}) => {
 
     const [newPizzaSize, setPizzaSize] = useState(pizzaSize)
     const [newSize, setSize] = useState(size)
@@ -40,7 +40,7 @@ const PizzaCatalogItem = ({name, description, size, price, icon, img, pizzaSize,
                         <div className="catalog-pizza-card__title--size">Размер, см:</div>
                         <SizeBtn size={newSize} resize={resize} />
                         <div className="catalog-pizza-card__price">от {price} руб.</div>
-                        <button className="catalog-pizza-card__buy" onClick={openModal}>Заказать</button>
+                        <button className="catalog-pizza-card__buy" onClick={() => addBusket(name, newSize, price, icon, img)}>Заказать</button>
                         <button className="catalog-pizza-card__buy mobileBuy">от {price} руб.</button>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 </main>
 
-<footer class="footer">
+<footer id="footer" class="footer">
     <div class="wrapper footer__container">
         <a href="#" class="footer__wrap--logo">
             <img src="/local/static/img/svg/logo-mobile-menu.svg" alt="" class="footer__logo">
