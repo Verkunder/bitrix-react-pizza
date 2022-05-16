@@ -11,6 +11,7 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
     const [errorTel, setTelError] = useState(false)
     const [errorAdres, setAdresError] = useState(false)
 
+    ///@TODO reduce
     const totalSum = () => {
         let s = 0
         for (let i=0; i < basket.length; i++) {
@@ -22,8 +23,7 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
     const [total, setTotal] = useState(totalSum)
 
     const incTotal = (price) => {
-        const prices = total + price
-        setTotal(prices)
+        setTotal(total => total + price)
     }
     const neincTotal = (price) => {
         const prices = total - price
@@ -44,7 +44,7 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
     }
 
     const compliteOrder = () => {
-        if (name, tel, adres != '') {
+        if (name, tel, adres !== '') {
             setComplete(true)
         } else {
         if (name === '') {
@@ -70,13 +70,13 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
     if(!isVisible) return null
     return ReactDOM.createPortal(
         <div className="modal" >
-            <div className="modal__bg"></div>
+            <div className="modal__bg" />
             <div className="modal__wrapper" data-content="basketAndOrderForm" style={{display: complete === false ? '': 'none'}}>
                 <h3 className="modal__title">Ваш заказ</h3>
-                <button className="modal__close" onClick={onClose}></button>
+                <button className="modal__close" onClick={onClose} />
                 <div className="wrap-basket">
                     <ul className="basket-modal">
-                        {basket.map(({name, size, price, icon, img, count, id}) => <OrderItem neincTotal={neincTotal} incTotal={incTotal} id={id} removeBasket={removeBasket} img={img} price={price} name={name} icon={icon} size={size} count={count} />)}
+                        {basket.map(({name, size, price, icon, img, count, id}) => <OrderItem key={id} neincTotal={neincTotal} incTotal={incTotal} id={id} removeBasket={removeBasket} img={img} price={price} name={name} icon={icon} size={size} count={count} />)}
                     </ul>
                     <span className="sum-basket">
             <span className="sum-basket__text">Сумма заказа :</span>
@@ -154,7 +154,7 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
                         конфиденциальности</p>
             </div>
             <div style={{display: complete === true ? '': 'none'}} className="modal__wrapper" data-content="successBuy" onClick={reload}>
-                <button className="modal__close" onClick={onClose}></button>
+                <button className="modal__close" onClick={onClose}/>
                 <h3 className="modal__title--seccess">Ваш заказ принят!</h3>
                 <p className="modal__text">Наш оператор скоро свяжется с вами.</p>
             </div>

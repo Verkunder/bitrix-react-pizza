@@ -14,11 +14,10 @@ const OrderItem = ({name, size, price, count, icon, img, removeBasket, id, incTo
     const neinc = () => {
         const antiincrement = newCount - 1
         setCount(antiincrement)
-        if (antiincrement !== 0) {
-            neincTotal(price/antiincrement)
-        } else {
-            neincTotal(price)
-        }
+        const prices = antiincrement !== 0 ? price/antiincrement : price
+        console.log(antiincrement + ' ' + price)
+        neincTotal(prices)
+
 
     }
 
