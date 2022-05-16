@@ -3,8 +3,6 @@ import OrderItem from "./OrderItem";
 import ReactDOM from 'react-dom'
 
 const Modal = ({isVisible, onClose, basket, removeBasket}) => {
-
-    const [total, setTotal] = useState(1877)
     const [name, setName] = useState('')
     const [tel, setTel] = useState('')
     const [adres, setAdres] = useState('')
@@ -20,8 +18,8 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
         }
         return s
         setTotal(s)
-        console.log(s)
     }
+    const [total, setTotal] = useState(totalSum)
 
     const incTotal = (price) => {
         const prices = total + price
