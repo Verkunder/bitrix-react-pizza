@@ -1,0 +1,112 @@
+@import "local/static/assets/sass/global/include/_config.sass"
+
+.posts
+        margin-top: 100px
+
+        +max-width(991px)
+                margin-top: 80px
+
+
+        +max-width($mobail)
+                margin-top: 0
+
+
+.about
+        display: flex
+        width: 752px
+        margin: 35px auto 0
+
+
+        +max-width($tablet)
+                margin-top: 21px
+                width: 100%
+
+
+        +max-width($mobail)
+                font-size: 12px
+                line-height: 18px
+
+
+        &__img
+                margin-right: 32px
+
+
+                @media (max-width: 1024px)
+                        margin-right: 41px
+
+
+                +max-width($mobail)
+                        margin-right: 17px
+
+
+                img
+                        border-radius: 130px
+                        max-width: 304px
+
+
+                        +max-width($tablet)
+                                width: 243px
+                                border-radius: 104px
+
+
+                        +max-width($mobail)
+                                width: 77px
+                                border-radius: 33px
+
+
+        &__info
+                display: flex
+                flex-direction: column
+                justify-content: center
+
+
+                +max-width($mobail)
+                        order: 2
+
+
+                .about__info-title
+                        +alegreya-black(32px, 150%)
+
+
+                        @media (max-width: 1024px)
+                                +alegreya-black(24px, 150%)
+
+
+                        +max-width($mobail)
+                                +alegreya-black(20px, 150%)
+
+
+                .about__info-text
+                        margin-top: 12px
+                        +roboto(14px, 150%)
+                        color: $black
+
+                        +max-width($mobail)
+                                margin-top: 4px
+                                +roboto(12px, 150%)
+
+
+        &:nth-child(2)
+                margin-right: 70px
+
+
+                +max-width($tablet)
+                        padding: 0 0 0 125px
+
+
+                +max-width($mobail)
+                        padding: 0
+
+
+                .about__img
+                        margin: 0 0 0 32px
+
+
+                        @media (max-width: 1024px)
+                                margin: 0 0 0 41px
+
+
+                        +max-width($mobail)
+                                order: 1
+                                margin: 0 17px 0 0
+

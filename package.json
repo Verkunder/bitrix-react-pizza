@@ -1,0 +1,48 @@
+{
+  "name": "s.kapustin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.php",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.1",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
+    "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^4.2.0",
+    "eslint-config-webpractik": "^0.1.6",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "jquery": "^3.5.1",
+    "postcss-loader": "^3.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sass": "1.43.3",
+    "sass-loader": "^9.0.2",
+    "slick-carousel": "^1.8.1",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.28.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode=development --watch",
+    "clean": "rm -rf local/static/bundle"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/webpractik/bitrix-start.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/webpractik/bitrix-start/issues"
+  },
+  "homepage": "https://gitlab.com/webpractik/bitrix-start#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "babel-plugin-transform-react-pure-components": "^3.1.2",
+    "double-validate": "^2.0.1",
+    "jquery.maskedinput": "^1.4.1"
+  }
+}

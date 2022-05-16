@@ -1,0 +1,506 @@
+@import "local/static/assets/sass/global/include/_config.sass"
+
+.modal
+        &__title
+                text-align: left
+                margin-bottom: 24px
+
+        &__close
+                width: 20px
+                height: 20px
+                position: absolute
+                right: 32px
+                top: 32px
+                background: none
+                outline: transparent
+                padding: 0
+                cursor: pointer
+
+                &:before
+                        content: ''
+                        position: absolute
+                        left: 0
+                        top: 50%
+                        transform: rotate(45deg)
+                        width: 100%
+                        height: 3px
+                        border-radius: 4px
+                        background: $black
+
+                &:after
+                        content: ''
+                        position: absolute
+                        left: 0
+                        top: 50%
+                        transform: rotate(-45deg)
+                        width: 100%
+                        height: 3px
+                        border-radius: 4px
+                        background: $black
+
+                &:focus
+                        outline: none
+
+.modal-dialog
+        position: fixed
+        width: 100%
+        height: 100%
+        left: 0
+        top: 0
+        z-index: 15
+        +max-width(575px)
+                margin: 0px !important
+        +min-width(575px)
+                max-width: 600px !important
+
+.modal-content
+        max-width: 704px
+        position: absolute
+        left: 50%
+        top: 50%
+        padding: 32px 32px 40px
+        background: #ffffff
+        transform: translate(-50%, -50%)
+        border-radius: 5px
+        z-index: 2
+        width: 100%
+        max-height: 90%
+        overflow: auto
+        height: auto
+
+.basket-modal
+        display: flex
+        flex-direction: column
+        border-bottom: 1px solid #DCDFE2
+
+        +max-width($mobail)
+                margin-bottom: 0
+
+        &__item
+                border-top: 1px solid #DCDFE2
+                padding: 8px
+                display: flex
+                flex-direction: row
+                align-items: center
+                position: relative
+                flex-wrap: wrap
+
+        &__wrap--img
+                width: 100px
+                height: 100px
+                position: relative
+                margin-right: 13px
+
+        &__wrap--icons--type
+                position: absolute
+                left: 0
+                top: 0
+                width: 15px
+                height: auto
+                z-index: 2
+
+                img
+                        width: 100%
+                        height: auto
+                        margin-bottom: 5px
+
+        &__img--pizza
+                max-width: 100%
+                height: auto
+
+        &__wrap--text
+                display: flex
+                flex-direction: column
+                width: 24%
+
+                +max-width($mobail)
+                        margin: 0 20px 0 0
+
+        &__title--pizza
+                +alegreya-extrabold(18px, normal)
+                color: $black
+                margin-bottom: 4px
+
+        &__size--pizza
+                +roboto(12px, 150%)
+                color: $black
+
+        &__wrap--count
+                display: flex
+                flex-direction: row
+                align-items: center
+
+                +max-width($mobail)
+                        margin: 10px 0
+
+        &__minus
+                border-radius: 50%
+                background: #C5CBD5
+                width: 24px
+                height: 24px
+                position: relative
+                cursor: pointer
+                outline: transparent
+                transition: background 0.3s ease-in-out
+
+                &:focus
+                        outline: none
+
+                &:before
+                        content: ""
+                        position: absolute
+                        left: 50%
+                        top: 50%
+                        width: 12px
+                        height: 2px
+                        background: $white
+                        transform: translate(-50%, -50%)
+
+                &:hover
+                        background: $rich-red
+
+                &.disabled
+                        background: #EEF0F3
+                        pointer-events: none
+
+                        &:focus
+                                outline: none
+
+        &__plus
+                border-radius: 50%
+                background: #C5CBD5
+                width: 24px
+                height: 24px
+                position: relative
+                cursor: pointer
+                outline: transparent
+                transition: background 0.3s ease-in-out
+
+                &:focus
+                        outline: none
+
+                &:before
+                        content: ""
+                        position: absolute
+                        left: 50%
+                        top: 50%
+                        width: 12px
+                        height: 2px
+                        background: $white
+                        transform: translate(-50%, -50%)
+                &:after
+                        content: ''
+                        position: absolute
+                        left: 50%
+                        top: 50%
+                        width: 12px
+                        height: 2px
+                        background: #fff
+                        transform: translate(-50%, -50%) rotate(90deg)
+
+                &:hover
+                        background: $rich-red
+
+                &.disabled
+                        background: #EEF0F3
+                        pointer-events: none
+
+                        &:focus
+                                outline: none
+
+        &__count
+                border: 1px solid #C4C7CA
+                border-radius: 4px
+                background: $white
+                margin: 0 8px
+                max-width: 60px
+                width: 100%
+                padding: 11px
+                text-align: center
+                +roboto(16px, 150%)
+                color: $black
+
+        &__wrap--price
+                margin-left: auto
+                margin-right: 32px
+                +max-width($mobail)
+                        margin-right: 0
+
+        &__price
+                +alegreya-extrabold(24px, normal)
+                color: $black
+
+        &__remove--item
+                position: absolute
+                top: 8px
+                right: 0
+                width: 24px
+                height: 24px
+                background: transparent
+                padding: 0
+                cursor: pointer
+                outline: transparent
+
+                &:before
+                        content: ""
+                        position: absolute
+                        left: 50%
+                        top: 50%
+                        transform: translate(-50%, -50%) rotate(45deg)
+                        width: 10px
+                        height: 2px
+                        border-radius: 2px
+                        background: #A9A9A9
+
+                &:after
+                        content: ""
+                        position: absolute
+                        left: 50%
+                        top: 50%
+                        transform: translate(-50%, -50%) rotate(-45deg)
+                        width: 10px
+                        height: 2px
+                        border-radius: 2px
+                        background: #A9A9A9
+
+                &:focus
+                        outline: none
+
+.sum-basket
+        display: flex
+        justify-content: flex-end
+        align-items: flex-end
+
+        +max-width($mobail)
+                justify-content: flex-start
+
+        &__text
+                +alegreya-extrabold(18px, 150%)
+                color: $black
+                display: inline-block
+                margin-bottom: 5px
+
+        &__sum
+                +alegreya-extrabold(32px, 150%)
+                color: $black
+                line-height: normal
+                display: inline-block
+                margin-left: 20px
+                +max-width($mobail)
+                        +alegreya-extrabold(24px, 150%)
+
+.buy-form
+        +max-width($mobail)
+                margin-top: 10px
+
+        &__title
+                text-align: left
+                display: block
+                +alegreya-extrabold(18px, 150%)
+                margin-bottom: 12px
+
+        &__wrap
+                margin-bottom: 24px
+
+                &--two--сolumn
+                        display: flex
+                        flex-direction: row
+
+                        +max-width($mobail)
+                                flex-direction: column
+
+                                +max-width($mobail)
+                                        margin-right: 0
+                                        margin-bottom: 12px
+
+        &__wrap--input
+                position: relative
+                width: 100%
+
+                &:nth-of-type(1)
+                        margin-right: 32px
+
+                +max-width($mobail)
+                        margin-top: 12px
+
+                &.complete
+                        label
+                                top: 0
+                                left: 9px
+                                transform: translateY(-50%)
+                                background: $white
+                                padding: 0 4px
+                                font-size: 13px
+                                z-index: 2
+                                color: #C4C7CA
+
+        &__input
+                border: 1px solid #C4C7CA
+                border-radius: 4px
+                background: transparent
+                padding: 13px 12px
+                +roboto(16px, 150%)
+                color: $black
+                transition: border-color 0.3s ease-in-out
+                width: 100%
+
+                &:hover
+                        border-color: $black
+
+                &.disabled
+                        background: #EEF0F3
+                        pointer-events: none
+                        border: 1px solid transparent
+
+                        &+label
+                                pointer-events: none
+                                z-index: 3
+
+                &:focus
+                        border-color: #3F8FE5
+
+                        &+label
+                                top: 0
+                                left: 9px
+                                transform: translateY(-50%)
+                                background: $white
+                                padding: 0 4px
+                                color: #3F8FE5
+                                font-size: 13px
+                                z-index: 2
+
+                &.error-input
+                        border-color: #fb7a7a
+                        &+label
+                                top: 0
+                                left: 9px
+                                transform: translateY(-50%)
+                                background: #fff
+                                padding: 0 4px
+                                font-size: 13px
+                                z-index: 2
+                                color: #fb7a7a !important
+
+        &__label
+                position: absolute
+                left: 13px
+                top: 15px
+                +roboto(16px, 150%)
+                color: #A6A6A6
+                width: auto
+                height: auto
+                z-index: -1
+                padding: 0
+                transition: top 0.3s ease-in-out, font-size 0.3s ease, transform 0.3s ease, padding 0.3s ease, color 0.3s ease, left 0.3s ease
+                background: transparent
+
+        &__radio
+                display: none
+                width: 100%
+
+                &.disabled
+                        &+label
+                                pointer-events: none
+                                opacity: 0.4
+
+        &__wrap--radio
+                position: relative
+                margin-bottom: 18px
+
+        &__radio--label
+                position: relative
+                +roboto(16px, 150%)
+                line-height: 1.33
+                padding-left: 28px
+                cursor: pointer
+
+                &:after
+                        content: ""
+                        position: absolute
+                        left: 0
+                        top: -2px
+                        width: 20px
+                        height: 20px
+                        border-radius: 50%
+                        border: 1px solid #C4C7CA
+                        transition: border-color 0.3s ease-in-out
+
+                &:before
+                        content: ""
+                        position: absolute
+                        left: 5px
+                        top: 3px
+                        width: 10px
+                        height: 10px
+                        border-radius: 50%
+                        background: $black
+                        opacity: 0
+
+                &:hover:after
+                        border-color: $black
+
+        &__radio:checked + label
+                &:before
+                        opacity: 1
+                        background-color: $rich-red
+                &:after
+                        border-color: $black
+
+        &__btn--buy
+                max-width: 240px
+                width: 100%
+                padding: 14px 0
+                +alegreya-black(18px, 150%)
+                text-transform: uppercase
+                color: #fff
+                border: none
+                background: transparent
+                outline: transparent
+                position: relative
+                letter-spacing: 1px
+                display: inline-block
+                margin-bottom: 23px
+                cursor: pointer
+                text-align: center
+
+                &:focus
+                        outline: none
+
+                &:before
+                        content: ''
+                        position: absolute
+                        left: 0
+                        top: 0
+                        width: 100%
+                        height: 100%
+                        background: #E52D2D
+                        border-radius: 5px
+                        z-index: -1
+
+                &:after
+                        content: ''
+                        position: absolute
+                        left: 0
+                        top: 0
+                        width: 100%
+                        height: 0
+                        background: #FF3C3C
+                        border-radius: 5px
+                        z-index: -1
+                        transition: height 0.3s ease-in-out
+
+                &:hover:after
+                        height: 100%
+
+
+                &__info
+                        color: #848a9a
+
+.error
+        color: #fb7a7a
+        +roboto(13px, 150%)
+        display: block
+        margin-top: 4px
+        margin-bottom: 4px
+        opacity: 0
+        transition: 0.3s opacity, 0.3s visibility

@@ -1,0 +1,24 @@
+[{
+  "name": "Итальянская",
+  "size": 30,
+  "price": 699,
+  "count": 1,
+  "icon": ["hot.svg"],
+  "img": "Pizza01.png"
+},
+  {
+    "name": "Маргарита",
+    "size": 40,
+    "price": 479,
+    "count": 1,
+    "icon" : ["meat.svg"],
+    "img": "Pizza02.png"
+  },
+  {
+    "name": "Барбекю",
+    "size": 30,
+    "price": 699,
+    "count": 1,
+    "icon" : ["meat.svg"],
+    "img": "Pizza03.png"
+  }]

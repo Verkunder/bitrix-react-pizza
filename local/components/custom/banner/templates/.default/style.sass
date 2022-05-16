@@ -1,0 +1,74 @@
+@import "local/static/assets/sass/global/include/_config.sass"
+
+.banner
+        background-image: url(/local/static/img/png/banner.png)
+        background-size: 1000px
+        height: 640px
+        background-position: calc(70% + 275px) center
+        margin: -20px 0 70px 0
+        background-repeat: no-repeat
+        position: relative
+        z-index: 11
+
+        +max-width($desktop)
+                    height: 630px
+                    background-position: calc(80% + 140px) center
+                    background-size: 503px
+                    margin: 0 0 -50px 0
+
+        +max-width($mobail)
+                    background-position: 0 60px
+                    background-size: contain
+                    padding: 80% 0 0 0
+                    height: auto
+                    z-index: 0
+
+        &__content
+                  display: flex
+                  flex-direction: column
+                  align-items: flex-start
+                  justify-content: center
+                  height: 100%
+
+                  +max-width($mobail)
+                          padding: 20px 0 0 0
+                          margin-bottom: -50px
+
+        &__title
+                margin: 0 0 12px 0
+                max-width: calc((100%/12)*6)
+                display: block
+                text-align: left
+                +alegreya-black(72px, 90px)
+                +max-width($desktop)
+                        max-width: 370px
+                        +alegreya-black(52px, 65px)
+                +max-width($mobail)
+                        text-align: left
+                        max-width: 100%
+                        +alegreya-black(40px, 50px)
+
+        &__text
+                margin: 0 0 32px 0
+                max-width: 441px
+                width: 100%
+                display: block
+                +roboto(24px, 36px)
+
+                +max-width($desktop)
+                        margin: 0 0 24px 0
+                        max-width: 369px
+                        +roboto(18px, 27px)
+                +max-width($mobail)
+                        +roboto(16px, 24px)
+
+        &__button
+                +button(18px 69px)
+
+                +max-width($mobail)
+                        +button(14px 14px)
+                        width: 100%
+                        max-width: 340px
+
+
+

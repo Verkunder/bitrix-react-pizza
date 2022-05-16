@@ -1,0 +1,102 @@
+@import "local/static/assets/sass/global/include/_config.sass"
+
+.delivery
+        background: #F8F6F3
+        padding: 72px 0 80px
+
+
+        +max-width(1024px)
+                padding: 40px 0 60px
+
+
+        +max-width($mobail)
+                padding: 24px 0 40px
+
+
+        h2
+                text-align: center
+                margin-bottom: 26px
+                +alegreya-black(52px, 150%)
+                +max-width($desktop)
+                        +alegreya-black(40px, 150%)
+                +max-width($mobail)
+                        +alegreya-black(28px, 150%)
+
+
+        &__steps
+                font-size: 12px
+                line-height: 18px
+                display: flex
+                justify-content: space-between
+                margin: 0 -16px
+
+
+                +max-width($mobail)
+                        font-size: 12px
+                        line-height: 18px
+                        display: block
+                        margin: 0
+
+
+        .step
+                display: flex
+                width: calc(100%/12)*4
+                box-shadow: 0px 2px 5px rgba(199, 193, 168, 0.3)
+                border-radius: 5px
+                padding: 35px 25px 35px
+                margin: 0 16px
+                background-color: #FFFFFF
+                background-position: left 25px center
+                background-repeat: no-repeat
+
+
+                &-title
+                        font-size: 24px
+                        line-height: 30px
+                        font-family: Alegreya,sans-serif
+
+                        +max-width(1024px)
+                                font-size: 20px
+                                line-height: 27px
+
+                +max-width(1024px)
+                        flex-wrap: wrap
+                        padding: 25px 20px
+
+
+                +max-width($mobail)
+                        width: 100%
+                        box-sizing: border-box
+                        padding: 15px
+                        margin: 0 0 12px 0
+                        flex-wrap: nowrap
+
+
+                &-img
+                        padding-right: 30px
+                        flex: 0 0 auto
+                        img
+                                width: 70px
+
+
+                                +max-width(1024px)
+                                        width: 55px
+                                +max-width($mobail)
+                                        width: 45px
+
+                        +max-width(1024px)
+                                min-height: 65px
+
+                        +max-width($mobail)
+
+                                width: auto
+                                padding-right: 15px
+
+
+                &-offer
+                        margin-top: 6px
+
+
+                +max-width($mobail)
+                        margin-top: 4px
+

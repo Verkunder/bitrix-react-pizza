@@ -1,0 +1,90 @@
+@import "local/static/assets/sass/global/include/_config.sass"
+
+.special-list
+        display: flex
+        flex-direction: row
+        margin: 0 -16px 112px
+        +max-width($mobail)
+                margin: 120px -15px 60px -15px
+                display: block
+
+        &__item
+                max-width: calc(100%/3)
+                width: 100%
+                padding: 0 16px
+
+                &:hover
+                        color: $black
+                        text-decoration: none
+                        .special-list__img-item
+                                transform: translate(-50%, -50%) scale(1.1)
+                        .special-list__title,
+                        .special-list__about
+                                opacity: 0.7
+
+                +max-width($mobail)
+                      max-width: 100%
+                      margin: 0
+                      padding: 0 15px
+
+        &__img
+                position: relative
+                margin-bottom: 12px
+                height: 0
+                padding-top: 60%
+                overflow: hidden
+                border-radius: 5px
+                transition: transform 0.3s ease
+
+                &-item
+                        width: 100%
+                        height: auto
+                        position: absolute
+                        left: 50%
+                        top: 50%
+                        transform: translate(-50%, -50%)
+                        transition: transform 0.5s ease
+
+        &__title
+                +alegreya-bold(24px, 125%)
+                color: $black
+                margin-bottom: 14px
+                transition: opacity 0.3s ease
+                display: block
+
+        &__about
+                +roboto(14px, 150%)
+                color: $black
+                transition: opacity 0.3s ease
+                display: block
+
+        .slick-dots-custom
+                margin-top: 20px
+                display: flex
+                justify-content: center
+
+        .slick-dots-custom li
+                display: inline-flex
+                justify-content: center
+                align-items: center
+                margin: 0 8px 0 0
+
+                &:last-child
+                        margin: 0
+
+                &.slick-active
+                        & button
+                                background: $rich-red
+
+        .slick-dots-custom li button
+                padding: 0
+                width: 12px
+                height: 12px
+                background: #DFE3EB
+                border-radius: 50%
+                font-size: 0
+
+                &:before
+                        content: none
+
+

@@ -1,0 +1,137 @@
+@import "local/static/assets/sass/global/include/_config.sass"
+
+.navigation
+      margin-left: 55px
+
+      +max-width($desktop)
+            margin-left: 50px
+            position: fixed
+            width: 320px
+            height: 100%
+            background: #313945 // background скрытого меню
+            top: 0
+            right: -320px
+            padding: 120px 60px 40px
+            flex-direction: column
+            z-index: 2
+            display: flex
+            overflow: auto
+            opacity: 0
+            visibility: hidden
+            transition: 0.35s opacity, 0.35s visibility
+
+            &.open
+                opacity: 1
+                visibility: visible
+                right: 0
+
+
+      &__list
+          display: flex
+          flex-direction: row
+          margin: 0 -30px
+          +max-width($desktop)
+                margin: 0
+                flex-direction: column
+
+
+      &__link
+          +max-width($desktop)
+              border-bottom: 1px solid #1D2228 // подчеркивание пунктов скрытого меню
+
+              &:last-child
+                  border: none
+
+          +max-width($desktop)
+              padding: 24px 0
+              display: block
+              text-align: center
+
+          a
+                +alegreya-black(18px, 150%)
+                color: $black
+                text-decoration: none
+                text-transform: uppercase
+                letter-spacing: 1px
+                margin: 0 30px
+                transition: 0.2s ease-in-out
+                +max-width($desktop)
+                        color: $white
+
+                +max-width(1300px)
+                        +alegreya-black(16px, 150%)
+                        margin: 0 20px
+
+                &:hover
+                        color: $rich-red
+                        text-decoration: none
+
+.about-mobile
+      display: none
+      flex-direction: column
+      margin-top: auto
+      align-items: center
+      +max-width($desktop)
+            display: flex
+
+
+      &__title
+            color: #A8B0BC
+            letter-spacing: 1px
+            text-align: center
+            +roboto-bold(12px, 150%)
+
+      &__phone
+            +alegreya-black(24px, 150%)
+            color: $white
+            text-decoration: none
+            letter-spacing: 1.33px
+            transition: opacity 0.3s ease-in-out
+
+            &:hover
+                    color: $white
+                    opacity: 0.7
+                    text-decoration: none
+
+      &__time
+            color: #A8B0BC
+            +roboto(12px, 150%)
+
+.language-mobile
+      display: none
+      +max-width($mobail)
+          display: flex
+          justify-content: center
+
+      &__button
+            color: $white
+            margin-top: 40px
+            outline: transparent
+            background: none
+            text-transform: uppercase
+            text-align: center
+            border: none
+            +alegreya-bold(12px, 150%)
+
+            &:hover
+                    color: $white
+                    text-decoration: none
+
+.logo-mobile
+      max-width: 85px
+      position: absolute
+      left: 16px
+      top: 12px
+      display: none
+      +max-width($mobail)
+            display: block
+
+.close-button
+      display: block
+      position: absolute
+      right: 36px
+      top: 44px
+      +max-width($mobail)
+             top: 12px
+             right: 16px
+

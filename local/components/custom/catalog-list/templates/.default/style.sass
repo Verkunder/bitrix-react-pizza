@@ -1,0 +1,269 @@
+@import "local/static/assets/sass/global/include/_config.sass"
+
+.catalog-pizza-card
+        display: flex
+        flex-wrap: wrap
+        margin: 0 -16px -16px
+
+        +max-width($mobail)
+                margin: 0
+
+        &__wrap--content
+                width: 100%
+
+        &__block
+                max-width: calc(100% / 4)
+                padding: 16px 16px
+
+                +max-width($desktop)
+                        max-width: calc(100%/3)
+
+                +max-width($mobail)
+                        max-width: 100%
+                        width: 100%
+                        flex-direction: row
+                        padding: 0 0 16px
+                        align-items: flex-start
+
+                        &:last-child
+                                margin-bottom: 0
+
+
+        &__block-item
+                border-radius: 5px
+                box-shadow: 0 2px 5px 0 rgba(165, 169, 176, 0.3)
+                padding: 20px 30px 40px
+                width: 100%
+                display: flex
+                flex-direction: column
+                align-items: center
+                position: relative
+                height: 100%
+                +max-width($mobail)
+                        padding: 12px 12px 24px
+                        flex-direction: row
+                        align-items: flex-start
+
+                &:hover
+                        .catalog-pizza-card__wrap--icon
+                                opacity: 1
+
+                        .catalog-pizza-card__title
+                                color: $rich-red
+
+
+        &__wrap--img
+                margin-bottom: 20px
+                width: 224px
+                height: 224px
+                position: relative
+                background: url("/local/static/img/svg/border.svg")
+                background-size: 200px 200px
+                background-position: center center
+                background-repeat: no-repeat
+
+                +max-width($desktop)
+                        width: 206px
+                        height: 206px
+                        background-size: 183px 183px
+
+                +max-width($mobail)
+                        width: 100%
+                        height: 0
+                        padding-top: 100%
+                        background-size: 90% 90%
+
+        &__img
+                position: absolute
+                left: 50%
+                top: 50%
+                width: 100%
+                height: auto
+                border-radius: 50%
+                overflow: hidden
+                transform: translate(-50%, -50%)
+                transition: transform 0.3s ease-in-out
+
+                &.small
+                        animation: resizeSmallPizza 0.5s ease forwards
+                &.middle
+                        animation: resizeMiddlePizza 0.5s ease forwards
+                &.big
+                        animation: resizeBigPizza 0.5s ease forwards
+
+        @keyframes resizeSmallPizza
+                0%
+                        transform: translate(-50%, -50%) scale(1)
+                100%
+                        transform: translate(-50%, -50%) scale(0.7)
+        @keyframes resizeMiddlePizza
+                0%
+                        transform: translate(-50%, -50%) scale(0.7)
+                100%
+                        transform: translate(-50%, -50%) scale(0.8)
+        @keyframes resizeBigPizza
+                0%
+                        transform: translate(-50%, -50%) scale(0.8)
+                100%
+                        transform: translate(-50%, -50%) scale(1)
+
+        &__title
+                margin-bottom: 6px
+                transition: color 0.3s ease-in-out
+                text-align: center
+                +alegreya-extrabold(24px, 150%)
+                +max-width($desktop)
+                        text-align: left
+                        margin-top: 8px
+                        text-align: center
+                        +alegreya-extrabold(20px, 150%)
+                +max-width($mobail)
+                        text-align: start
+                        +alegreya-extrabold(18px, 150%)
+
+        &__recept
+                text-align: center
+                margin-bottom: 8px
+                display: block
+                +roboto(12px, 100%)
+                line-height: 18px
+                color: $iron
+                height: auto
+                +max-width($mobail)
+                        font-size: 11px
+                        line-height: 1.5
+                        margin-bottom: 4px
+                        text-align: left
+
+        &__title--size
+                text-align: center
+                color: $black
+                +roboto(12px, 150%)
+                margin: -4px 0 4px 0
+                +max-width($mobail)
+                        text-align: left
+
+        &__size--list
+                display: flex
+                flex-direction: row
+                flex-wrap: nowrap
+                justify-content: center
+                background: $light-gray
+                border-radius: 4px
+                padding: 2px
+                height: 32px
+                max-width: 182px
+                margin: 0 auto 12px
+                +max-width($mobail)
+                        margin: 0 0 12px 0
+                        max-width: 165px
+
+        &__size--item
+                margin-right: 2px
+
+                &:last-child
+                        margin-right: 0
+
+        &__size--btn
+                width: 58px
+                height: 100%
+                background: transparent
+                border-radius: 4px
+                color: #82909F
+                outline: transparent
+                display: inline-block
+                +roboto-bold(12px, 150%)
+                cursor: pointer
+                text-align: center
+                +max-width($mobail)
+                        width: 52px
+
+                &.active
+                        background: $white
+                        color: $black
+
+                &:focus
+                        outline: none
+
+        &__price
+                +roboto-bold(24px, 150%)
+                margin-bottom: 12px
+                text-align: center
+
+                +max-width($mobail)
+                        display: none
+
+        &__buy
+                +button(14px 14px)
+                width: 100%
+                +alegreya-black(18px, 150%)
+                +max-width($mobail)
+                        display: none
+
+                &.mobileBuy
+                        display: none
+                        +max-width($mobail)
+                                display: inline-block
+                                +roboto-medium(16px, 150%)
+                                padding: 4px 0
+                                width: 73%
+                                text-transform: none
+                                letter-spacing: normal
+
+        &__wrap--icon
+                position: absolute
+                left: 17px
+                top: 17px
+                display: flex
+                flex-direction: column
+                width: 24px
+                height: auto
+                opacity: 0
+                transition: opacity 0.3s ease-in-out
+                +max-width($desktop)
+                        left: 8px
+                        top: 8px
+                        opacity: 1
+                +max-width($mobail)
+                        width: 4%
+                        left: 10px
+                        top: 10px
+                img
+                        margin-bottom: 10px
+                        width: 100%
+                        height: auto
+                        +max-width($mobail)
+                                margin-bottom: 5px
+
+        &__wrap--left--side--mobile
+                +max-width($mobail)
+                        width: 34%
+                        flex-shrink: 0
+                        margin-right: 13px
+
+        &__wrap--right--side--mobile
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: space-between
+                height: 100%
+                +max-width($mobail)
+                        align-items: flex-start
+                        justify-content: center
+
+h4
+        +alegreya-extrabold(24px, 125%)
+        color: #000000
+
+        +max-width($desktop)
+                +alegreya-extrabold(20px, 125%)
+
+        +max-width($mobail)
+                +alegreya-extrabold(18px, 125%)
+
+
+.loader
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center

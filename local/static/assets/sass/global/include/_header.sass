@@ -1,0 +1,155 @@
+@charset "UTF-8"
+
+.header
+      padding: 52px 0 40px 0
+      position: absolute
+      left: 0
+      right: 0
+      width: 100%
+      height: auto
+      background: $white
+      z-index: 99
+
+      +max-width($desktop)
+                  padding: 32px 0 40px 0
+
+      +max-width($mobail)
+                  padding: 12px 0 20px 0
+
+      &.isSticky
+            padding: 15px 0 14px
+            position: fixed
+            width: 100%
+            height: auto
+            left: 0
+            top: 0
+            margin: 0
+            z-index: 12
+            box-shadow: 0px 2px 5px rgba(165, 169, 176, 0.3)
+            opacity: 0
+            transition: 0.3s ease-in-out
+            animation: show 0.3s 1
+            animation-fill-mode: forwards
+
+            @keyframes show
+                0%
+                    opacity: 0
+
+                100%
+                    opacity: 1
+
+            .phone-header__phone,
+            .basket__text--order
+                        font-size: 18px
+
+            .phone-header__phone
+                        letter-spacing: 1.29px
+
+            .basket__text--order
+                        letter-spacing: 1px
+
+            .phone-header__icon, .basket__wrap--icon
+                        width: 32px
+                        height: 32px
+
+            .logo-header
+                        max-width: 69px
+
+            .navigation__link
+                        font: normal 900 16px/150% "Alegreya", sans-serif
+                        +max-width($mobail)
+                                    font: normal 900 18px/150% "Alegreya", sans-serif
+
+            .navigation
+                        margin-left: 183px
+
+            .phone-header
+                        margin-left: auto
+
+            .language
+                        opacity: 0
+                        visibility: hidden
+                        +max-width($desktop)
+                                          display: none
+
+      &__wrap
+            display: flex
+            flex-direction: row
+            flex-wrap: nowrap
+            align-items: center
+            justify-content: space-between
+
+.logo-header
+            max-width: 181.5px
+            width: 100%
+            transition: opacity 0.3s ease
+
+            +max-width($desktop)
+                  width: 130px
+            +max-width($mobail)
+                  width: 85px
+
+            &:hover
+                  opacity: 0.75
+
+            &__img
+                  max-width: 100%
+
+.mobile-burger
+            display: none
+            +max-width($desktop)
+                        display: flex
+
+            &__icon
+                  padding: 0 0 0 20px
+
+.smallText
+            +roboto(12px, 100%)
+            height: 18px
+            line-height: 18px
+            color: $iron
+            height: auto
+
+.language
+            margin-left: 30px
+            border-radius: 50%
+            background-color: $light-gray
+            width: 48px
+            height: 48px
+            text-align: center
+            line-height: 49px
+            cursor: pointer
+            padding: 0
+            flex-shrink: 0
+            border: none
+            transition: opacity .3s ease
+            outline: transparent
+
+            &:focus
+                  outline: none
+
+            &:hover
+                  opacity: 0.7
+            +max-width($desktop)
+                        margin-left: 70px
+            +max-width($mobail)
+                        display: none
+
+            &__text
+                  +alegreya-black(18px, 150%)
+                  letter-spacing: 1px
+                  color: $black
+                  text-transform: uppercase
+
+main
+            padding-top: 176px
+            min-height: 100%
+            box-sizing: border-box
+            padding-bottom: 120px
+
+            +max-width($desktop)
+                  padding-top: 0
+            +max-width($mobail)
+                  padding-top: 0
+
+

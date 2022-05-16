@@ -1,0 +1,79 @@
+@import "local/static/assets/sass/global/include/_config.sass"
+
+.catalog-pizza-tabs
+        display: flex
+        flex-direction: row
+        margin: 0 0 40px
+        justify-content: center
+
+        +max-width($mobail)
+              margin: 0 0 30px
+
+        &__item
+                margin: 0 20px
+                position: relative
+
+                &:hover
+                        .catalog-pizza-tabs__icon
+                                top: 0
+                                opacity: 1
+
+        &__btn
+                +alegreya-black(18px, 150%)
+                letter-spacing: 1px
+                transition: color 0.3s ease-in-out
+                color: $black
+                cursor: pointer
+                background: transparent
+                outline: transparent
+                position: relative
+                z-index: 2
+                text-transform: uppercase
+
+                +max-width($mobail)
+                        display: none
+
+                &:active
+                        color: $rich-red
+
+                &:hover
+                        color: $rich-red
+                &.active
+                        color: $rich-red
+
+                &:focus
+                        outline: none
+
+        &__icon
+                position: absolute
+                width: 24px
+                height: 24px
+                display: flex
+                align-items: center
+                justify-content: center
+                left: 50%
+                top: 50%
+                transform: translate(-50%, -100%)
+                transition: top 0.3s ease
+                background: none
+                padding: 0
+                outline: transparent
+                opacity: 0
+
+                svq path
+                        transition: fill 0.3s ease-in-out
+
+                &.active
+                        svg path
+                                fill: $rich-red
+
+                &:focus
+                        outline: none
+
+                +max-width($mobail)
+                        opacity: 1
+                        position: relative
+                        left: 0
+                        top: 0
+                        transform: none
+                        margin: 0 auto

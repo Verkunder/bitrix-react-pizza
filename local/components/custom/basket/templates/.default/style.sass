@@ -1,0 +1,61 @@
+@import "local/static/assets/sass/global/include/_config.sass"
+
+.basket
+        display: flex
+        flex-direction: row
+        flex-wrap: nowrap
+        margin-left: 60px
+        align-items: center
+        max-width: 212px
+        width: 100%
+        cursor: pointer
+        transition: opacity .3s ease
+
+        &:hover
+                opacity: 0.7
+
+        +max-width($desktop)
+                margin-left: 32px
+                width: auto
+        +max-width($mobail)
+                margin-left: 16px
+        &__wrap--icon
+                width: 40px
+                height: 40px
+                margin-right: 12px
+                position: relative
+                flex-shrink: 0
+                transition: width, height 0.2s ease-in-out
+
+                +max-width($desktop)
+                        margin-right: 0
+                +max-width($mobail)
+                        width: 32px
+                        height: 32px
+
+        &__icon
+                width: 100%
+                height: auto
+
+        &__text
+                display: flex
+                flex-direction: column
+                +max-width($desktop)
+                        display: none
+
+        &__text--order
+                +alegreya-black(24px, normal)
+                letter-spacing: 1.33px
+                transition: color 0.2s ease-in-out
+
+        &__count--icon
+                position: absolute
+                right: -10px
+                top: -10px
+                border-radius: 50%
+                background: $rich-red
+                width: 20px
+                height: 20px
+                text-align: center
+                color: $white
+                +roboto-bold(11px, 21px)

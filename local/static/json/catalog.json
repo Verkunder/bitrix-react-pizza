@@ -1,0 +1,121 @@
+[{
+  "name": "Итальянская",
+  "description": "Томат, шампиньон, сыр, оливки, чили, соус, тесто, базилик",
+  "size": 20,
+  "price": 699,
+  "icon": ["hot.svg"],
+  "img": "Pizza01.png",
+  "pizzaSize" : "small",
+  "sort": "hot"
+},
+  {
+    "name": "Маргарита",
+    "description": "Тесто со шпинатом, молодой сыр и колбаски, много колбасок",
+    "size": 40,
+    "price": 479,
+    "icon" : ["meat.svg"],
+    "img": "Pizza02.png",
+    "pizzaSize" : "big",
+    "sort": "meat"
+  },
+  {
+    "name": "Барбекю",
+    "description": "Циплёнок (маленький кура), оливки, моцарелла, соус барбекю",
+    "size": 30,
+    "price": 699,
+    "icon" : ["meat.svg"],
+    "img": "Pizza03.png",
+    "pizzaSize" : "middle",
+    "sort": "meat"
+  },
+  {
+    "name": "Вегетарианская",
+    "description": "Томат, шампиньон, сыр, оливки, чили, соус, тесто, базилик",
+    "size": 20,
+    "price": 399,
+    "icon" : ["vegetable.svg"],
+    "img": "Pizza04.png",
+    "pizzaSize" : "small",
+    "sort": "vegan"
+  },
+  {
+    "name": "Мясная",
+    "description": "Тесто со шпинатом, молодой сыр и колбаски, много колбасок",
+    "size": 30,
+    "price": 699,
+    "icon" : ["meat.svg", "hot.svg"],
+    "img": "Pizza05.png",
+    "pizzaSize" : "middle",
+    "sort": "hot"
+  },
+  {
+    "name": "Овощная",
+    "description": "Томат, шампиньон, сыр, оливки, чили, соус, тесто, базилик",
+    "size": 30,
+    "price": 479,
+    "icon" : ["vegetable.svg"],
+    "img": "Pizza06.png",
+    "pizzaSize" : "middle",
+    "sort": "vegan"
+  },
+  {
+    "name": "Римская",
+    "description": "Циплёнок (маленький кура), оливки, моцарелла, соус барбекю",
+    "size": 30,
+    "price": 699,
+    "icon" : ["hot.svg"],
+    "img": "Pizza07.png",
+    "pizzaSize" : "middle",
+    "sort": "hot"
+  },
+  {
+    "name": "С грибами",
+    "description": "Томат, шампиньон, сыр, оливки, чили, соус, тесто, базилик",
+    "size": 30,
+    "price": 399,
+    "icon" : ["chees.svg"],
+    "img": "Pizza08.png",
+    "pizzaSize" : "middle",
+    "sort": "chees"
+  },
+  {
+    "name": "Сырная",
+    "description": "Томат, шампиньон, сыр, оливки, чили, соус, тесто, базилик",
+    "size": 30,
+    "price": 699,
+    "icon" : ["chees.svg"],
+    "img": "Pizza09.png",
+    "pizzaSize" : "middle",
+    "sort": "chees"
+  },
+  {
+    "name": "Четыре сыра",
+    "description": "Тесто со шпинатом, молодой сыр и колбаски, много колбасок",
+    "size": 30,
+    "price": 479,
+    "icon" : ["chees.svg"],
+    "img": "Pizza10.png",
+    "pizzaSize" : "middle",
+    "sort": "chees"
+  },
+  {
+    "name": "Пепперони Фреш с томатами",
+    "description": "Циплёнок (маленький кура), оливки, моцарелла, соус барбекю",
+    "size": 30,
+    "price": 699,
+    "icon" : ["meat.svg"],
+    "img": "Pizza11.png",
+    "pizzaSize" : "middle",
+    "sort": "meat"
+  },
+  {
+    "name": "Ветчина и сыр",
+    "description": "Томат, шампиньон, сыр, оливки, чили, соус, тесто, базилик",
+    "size": 30,
+    "price": 399,
+    "icon" : ["meat.svg"],
+    "img": "Pizza12.png",
+    "pizzaSize" : "middle",
+    "sort": "meat"
+  }
+]

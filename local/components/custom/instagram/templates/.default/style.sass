@@ -1,0 +1,60 @@
+@import "local/static/assets/sass/global/include/_config.sass"
+
+.instagram
+        margin-top: 112px
+        text-align: center
+
+
+        +max-width($mobail)
+                margin-top: 60px
+
+        &__title
+                +alegreya-black(52px, 150%)
+                +max-width($desktop)
+                        +alegreya-black(40px, 150%)
+                +max-width($mobail)
+                        +alegreya-black(28px, 150%)
+
+
+        &__address
+                display: block
+                color: $iron
+                +alegreya-black(24px, 150%)
+                margin-bottom: 46px
+                text-decoration: none
+                &:hover
+                        text-decoration: underline
+                        color: $iron
+
+
+                +max-width(1024px)
+                        margin-bottom: 20px
+
+
+        &__photo
+                display: grid
+                grid-template: repeat(2,1fr)/repeat(5,1fr)
+
+                +max-width(1024px)
+                        grid-template: repeat(2,1fr)/repeat(3,1fr)
+
+                +max-width($mobail)
+                        grid-template: repeat(2,1fr)/repeat(2,1fr)
+
+
+                img
+                        width: 100%
+                        transition: opacity 0.3s ease-in-out
+
+                        &:hover
+                                opacity: 0.7
+
+                        +max-width(1024px)
+                                &:nth-child(n+7)
+                                        display: none
+
+
+                        +max-width($mobail)
+                                &:nth-child(n+5)
+                                        display: none
+
