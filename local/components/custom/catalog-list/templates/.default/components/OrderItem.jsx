@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 
-const OrderItem = ({name, size, price, count, icon, img, removeBasket, id}) => {
+const OrderItem = ({name, size, price, count, icon, img, removeBasket, id, incTotal, neincTotal}) => {
 
     const [newCount, setCount] = useState(count)
 
@@ -8,11 +8,18 @@ const OrderItem = ({name, size, price, count, icon, img, removeBasket, id}) => {
     const inc = () => {
         const increment = newCount + 1
         setCount(increment)
+        incTotal(price)
     }
 
     const neinc = () => {
         const antiincrement = newCount - 1
         setCount(antiincrement)
+        if (antiincrement !== 0) {
+            neincTotal(price/antiincrement)
+        } else {
+            neincTotal(price)
+        }
+
     }
 
     return (

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 
 const Modal = ({isVisible, onClose, basket, removeBasket}) => {
 
-    const [total, setTotal] = useState(0)
+    const [total, setTotal] = useState(1877)
     const [name, setName] = useState('')
     const [tel, setTel] = useState('')
     const [adres, setAdres] = useState('')
@@ -20,6 +20,16 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
         }
         return s
         setTotal(s)
+        console.log(s)
+    }
+
+    const incTotal = (price) => {
+        const prices = total + price
+        setTotal(prices)
+    }
+    const neincTotal = (price) => {
+        const prices = total - price
+        setTotal(prices)
     }
 
     const changeName = (e) => {
@@ -68,11 +78,11 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
                 <button className="modal__close" onClick={onClose}></button>
                 <div className="wrap-basket">
                     <ul className="basket-modal">
-                        {basket.map(({name, size, price, icon, img, count, id}) => <OrderItem id={id} removeBasket={removeBasket} img={img} price={price} name={name} icon={icon} size={size} count={count} />)}
+                        {basket.map(({name, size, price, icon, img, count, id}) => <OrderItem neincTotal={neincTotal} incTotal={incTotal} id={id} removeBasket={removeBasket} img={img} price={price} name={name} icon={icon} size={size} count={count} />)}
                     </ul>
                     <span className="sum-basket">
             <span className="sum-basket__text">Сумма заказа :</span>
-            <span className="sum-basket__sum">{totalSum()} руб</span>
+            <span className="sum-basket__sum">{total} руб</span>
         </span>
                 </div>
                     <span className="buy-form__title">Контакты</span>
