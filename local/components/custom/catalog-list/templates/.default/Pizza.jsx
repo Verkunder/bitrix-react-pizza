@@ -116,7 +116,7 @@ const Pizza = () => {
                basket={order}
                removeBasket={removeBasket}
         />
-        <OrderCount basket={order} openModal={openModal}  />
+        <OrderCount basket={order} openModal={openModal} />
     </>
     );
 };
