@@ -6,6 +6,7 @@ import Basket from '/local/static/json/basket.json'
 import Filter from "./components/Filter";
 import PizzaCatalogItem from "./components/PizzaCatalogItem";
 import Modal from "./components/Modal";
+import OrderCount from "./components/OrderCount";
 
 const Pizza = () => {
 
@@ -27,7 +28,6 @@ const Pizza = () => {
             icon: icon,
             img: img
         })
-        console.log(newOrder)
         openModal()
     }
 
@@ -66,7 +66,6 @@ const Pizza = () => {
 
     const openModal = () => {
         setModal(true)
-        console.log(isModal)
     }
 
     useEffect(() => {
@@ -117,6 +116,7 @@ const Pizza = () => {
                basket={order}
                removeBasket={removeBasket}
         />
+        <OrderCount basket={order} openModal={openModal}  />
     </>
     );
 };
