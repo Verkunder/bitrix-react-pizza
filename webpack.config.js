@@ -37,12 +37,12 @@ let config = {
         'basket': './local/components/custom/basket/templates/.default/style.sass',
         'banner': './local/components/custom/banner/templates/.default/style.sass',
         'stock': './local/components/custom/stock/templates/.default/style.sass',
-        'catalog-filter': './local/components/custom/catalog-filter/templates/.default/style.sass',
+        'catalog-filter': './local/components/custom/catalog-list/templates/.default/filter.sass',
         'catalog-list': './local/components/custom/catalog-list/templates/.default/style.sass',
         'delivery': './local/components/custom/delivery/templates/.default/style.sass',
         'about': './local/components/custom/about/templates/.default/style.sass',
         'instagram': './local/components/custom/instagram/templates/.default/style.sass',
-        'modal': './local/components/custom/modal/templates/.default/style.sass'
+        'modal': './local/components/custom/catalog-list/templates/.default/modal.sass'
 
     },
     output: {

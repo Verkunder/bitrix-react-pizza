@@ -9,9 +9,6 @@ const Filter = ({filt}) => {
         setFilter(newFilter)
     }
 
-    console.log(filter)
-
-
     return (
         <>
             <h2 className="catalog-pizza__title">Выберите пиццу</h2>

@@ -1,9 +1,47 @@
 @import "local/static/assets/sass/global/include/_config.sass"
 
 .modal
+        position: fixed
+        width: 100%
+        height: 100%
+        left: 0
+        top: 0
+        z-index: 15
+
+
+        &__bg
+                position: absolute
+                left: 0
+                top: 0
+                width: 100%
+                height: 100%
+                z-index: 1
+                background: rgba(0,0,0,0.9)
+
+
+        &__wrapper
+                position: absolute
+                left: 50%
+                top: 50%
+                padding: 32px 32px 40px
+                background: #ffffff
+                transform: translate(-50%, -50%)
+                border-radius: 5px
+                z-index: 2
+                max-width: 704px
+                width: 100%
+                max-height: 90%
+                overflow: auto
+
+
         &__title
                 text-align: left
                 margin-bottom: 24px
+                +alegreya-black(32px, 180%)
+
+                &--success
+                        text-align: center
+
 
         &__close
                 width: 20px
@@ -25,7 +63,7 @@
                         width: 100%
                         height: 3px
                         border-radius: 4px
-                        background: $black
+                        background: #000
 
                 &:after
                         content: ''
@@ -36,48 +74,27 @@
                         width: 100%
                         height: 3px
                         border-radius: 4px
-                        background: $black
+                        background: #000
 
-                &:focus
-                        outline: none
 
-.modal-dialog
-        position: fixed
-        width: 100%
-        height: 100%
-        left: 0
-        top: 0
-        z-index: 15
-        +max-width(575px)
-                margin: 0px !important
-        +min-width(575px)
-                max-width: 600px !important
+        &__text
+                +roboto(18px, 150%)
+                color: $black
+                text-align: center
 
-.modal-content
-        max-width: 704px
-        position: absolute
-        left: 50%
-        top: 50%
-        padding: 32px 32px 40px
-        background: #ffffff
-        transform: translate(-50%, -50%)
-        border-radius: 5px
-        z-index: 2
-        width: 100%
-        max-height: 90%
-        overflow: auto
-        height: auto
 
 .basket-modal
         display: flex
         flex-direction: column
-        border-bottom: 1px solid #DCDFE2
+        border-bottom: 1px solid #dcdfe2
+        margin-bottom: 23px
 
         +max-width($mobail)
                 margin-bottom: 0
 
+
         &__item
-                border-top: 1px solid #DCDFE2
+                border-top: 1px solid #dcdfe2
                 padding: 8px
                 display: flex
                 flex-direction: row
@@ -85,13 +102,27 @@
                 position: relative
                 flex-wrap: wrap
 
-        &__wrap--img
+
+        &__wrap-img
                 width: 100px
                 height: 100px
                 position: relative
                 margin-right: 13px
 
-        &__wrap--icons--type
+                &.small
+                        .basket-modal__img-pizza
+                                transform: scale(0.68)
+
+                &.middle
+                        .basket-modal__img-pizza
+                                transform: scale(0.771)
+
+                &.big
+                        .basket-modal__img-pizza
+                                transform: scale(1)
+
+
+        &__wrap-icons-type
                 position: absolute
                 left: 0
                 top: 0
@@ -99,33 +130,58 @@
                 height: auto
                 z-index: 2
 
-                img
+                svg
                         width: 100%
                         height: auto
                         margin-bottom: 5px
 
-        &__img--pizza
+
+        &__big-size-border-pizza
+                width: 83px
+                height: 83px
+                position: absolute
+                left: 50%
+                top: 50%
+                transform: translate(-50%, -50%)
+                background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23DCDFE2FF' stroke-width='1' stroke-dasharray='10%2c5' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e")
+
+
+        &__middle-size-border-pizza
+                width: 70px
+                height: 70px
+                position: absolute
+                left: 50%
+                top: 50%
+                transform: translate(-50%, -50%)
+                background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23DCDFE2FF' stroke-width='1' stroke-dasharray='10%2c5' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e")
+
+
+        &__img-pizza
                 max-width: 100%
                 height: auto
 
-        &__wrap--text
+
+        &__wrap-text
                 display: flex
                 flex-direction: column
                 width: 24%
 
                 +max-width($mobail)
-                        margin: 0 20px 0 0
+                        width: calc(100% - 120px)
 
-        &__title--pizza
+
+        &__title-pizza
                 +alegreya-extrabold(18px, normal)
-                color: $black
+                color: #000
                 margin-bottom: 4px
 
-        &__size--pizza
-                +roboto(12px, 150%)
-                color: $black
 
-        &__wrap--count
+        &__size-pizza
+                +roboto(12px, 150%)
+                color: #000
+
+
+        &__wrap-count
                 display: flex
                 flex-direction: row
                 align-items: center
@@ -133,9 +189,10 @@
                 +max-width($mobail)
                         margin: 10px 0
 
+
         &__minus
                 border-radius: 50%
-                background: #C5CBD5
+                background: #c5cbd5
                 width: 24px
                 height: 24px
                 position: relative
@@ -143,32 +200,27 @@
                 outline: transparent
                 transition: background 0.3s ease-in-out
 
-                &:focus
-                        outline: none
+                &.disabled
+                        background: #eef0f3
+                        pointer-events: none
 
                 &:before
-                        content: ""
+                        content: ''
                         position: absolute
                         left: 50%
                         top: 50%
                         width: 12px
                         height: 2px
-                        background: $white
+                        background: #fff
                         transform: translate(-50%, -50%)
 
                 &:hover
                         background: $rich-red
 
-                &.disabled
-                        background: #EEF0F3
-                        pointer-events: none
-
-                        &:focus
-                                outline: none
 
         &__plus
                 border-radius: 50%
-                background: #C5CBD5
+                background: #c5cbd5
                 width: 24px
                 height: 24px
                 position: relative
@@ -176,18 +228,20 @@
                 outline: transparent
                 transition: background 0.3s ease-in-out
 
-                &:focus
-                        outline: none
+                &.disabled
+                        background: #eef0f3
+                        pointer-events: none
 
                 &:before
-                        content: ""
+                        content: ''
                         position: absolute
                         left: 50%
                         top: 50%
                         width: 12px
                         height: 2px
-                        background: $white
+                        background: #fff
                         transform: translate(-50%, -50%)
+
                 &:after
                         content: ''
                         position: absolute
@@ -201,36 +255,31 @@
                 &:hover
                         background: $rich-red
 
-                &.disabled
-                        background: #EEF0F3
-                        pointer-events: none
-
-                        &:focus
-                                outline: none
 
         &__count
-                border: 1px solid #C4C7CA
+                border: 1px solid #c4c7ca
                 border-radius: 4px
-                background: $white
+                background: #fff
                 margin: 0 8px
                 max-width: 60px
                 width: 100%
                 padding: 11px
                 text-align: center
                 +roboto(16px, 150%)
-                color: $black
+                color: #000
 
-        &__wrap--price
+
+        &__wrap-price
                 margin-left: auto
                 margin-right: 32px
-                +max-width($mobail)
-                        margin-right: 0
+
 
         &__price
-                +alegreya-extrabold(24px, normal)
-                color: $black
+                +alegreya-extrabold(24px,normal)
+                color: #000
 
-        &__remove--item
+
+        &__remove-item
                 position: absolute
                 top: 8px
                 right: 0
@@ -242,7 +291,7 @@
                 outline: transparent
 
                 &:before
-                        content: ""
+                        content: ''
                         position: absolute
                         left: 50%
                         top: 50%
@@ -250,10 +299,10 @@
                         width: 10px
                         height: 2px
                         border-radius: 2px
-                        background: #A9A9A9
+                        background: #a9a9a9
 
                 &:after
-                        content: ""
+                        content: ''
                         position: absolute
                         left: 50%
                         top: 50%
@@ -261,10 +310,7 @@
                         width: 10px
                         height: 2px
                         border-radius: 2px
-                        background: #A9A9A9
-
-                &:focus
-                        outline: none
+                        background: #a9a9a9
 
 .sum-basket
         display: flex
@@ -274,24 +320,27 @@
         +max-width($mobail)
                 justify-content: flex-start
 
+
         &__text
                 +alegreya-extrabold(18px, 150%)
-                color: $black
+                color: #000
                 display: inline-block
                 margin-bottom: 5px
 
+
         &__sum
                 +alegreya-extrabold(32px, 150%)
-                color: $black
+                color: #000
                 line-height: normal
                 display: inline-block
                 margin-left: 20px
-                +max-width($mobail)
-                        +alegreya-extrabold(24px, 150%)
+
 
 .buy-form
+
         +max-width($mobail)
                 margin-top: 10px
+
 
         &__title
                 text-align: left
@@ -302,74 +351,70 @@
         &__wrap
                 margin-bottom: 24px
 
-                &--two--сolumn
+                &--two-сolumn
                         display: flex
                         flex-direction: row
 
                         +max-width($mobail)
                                 flex-direction: column
 
+                        & .buy-form__wrap-input:nth-of-type(1)
+                                margin-right: 32px
+
                                 +max-width($mobail)
                                         margin-right: 0
-                                        margin-bottom: 12px
+                                        margin-bottom: 24px
 
-        &__wrap--input
+
+        &__wrap-input
                 position: relative
                 width: 100%
-
-                &:nth-of-type(1)
-                        margin-right: 32px
-
-                +max-width($mobail)
-                        margin-top: 12px
 
                 &.complete
                         label
                                 top: 0
                                 left: 9px
                                 transform: translateY(-50%)
-                                background: $white
+                                background: #fff
                                 padding: 0 4px
                                 font-size: 13px
                                 z-index: 2
-                                color: #C4C7CA
+                                color: #c4c7ca
+
 
         &__input
-                border: 1px solid #C4C7CA
+                border: 1px solid #c4c7ca
                 border-radius: 4px
                 background: transparent
                 padding: 13px 12px
                 +roboto(16px, 150%)
-                color: $black
+                color: #000
                 transition: border-color 0.3s ease-in-out
                 width: 100%
 
                 &:hover
-                        border-color: $black
+                        border-color: #000
 
                 &.disabled
-                        background: #EEF0F3
+                        background: #eef0f3
                         pointer-events: none
                         border: 1px solid transparent
-
                         &+label
                                 pointer-events: none
                                 z-index: 3
-
                 &:focus
-                        border-color: #3F8FE5
-
+                        border-color: #3f8fe5
                         &+label
                                 top: 0
                                 left: 9px
                                 transform: translateY(-50%)
-                                background: $white
+                                background: #fff
                                 padding: 0 4px
-                                color: #3F8FE5
+                                color: #3f8fe5
                                 font-size: 13px
                                 z-index: 2
 
-                &.error-input
+                &.error
                         border-color: #fb7a7a
                         &+label
                                 top: 0
@@ -381,18 +426,20 @@
                                 z-index: 2
                                 color: #fb7a7a !important
 
+
         &__label
                 position: absolute
                 left: 13px
                 top: 15px
                 +roboto(16px, 150%)
-                color: #A6A6A6
+                color: #a6a6a6
                 width: auto
                 height: auto
                 z-index: -1
                 padding: 0
                 transition: top 0.3s ease-in-out, font-size 0.3s ease, transform 0.3s ease, padding 0.3s ease, color 0.3s ease, left 0.3s ease
                 background: transparent
+
 
         &__radio
                 display: none
@@ -403,50 +450,52 @@
                                 pointer-events: none
                                 opacity: 0.4
 
-        &__wrap--radio
+
+        &__wrap-radio
                 position: relative
                 margin-bottom: 18px
 
-        &__radio--label
+
+        &__radio-label
                 position: relative
                 +roboto(16px, 150%)
-                line-height: 1.33
+                line-height: 1.13
                 padding-left: 28px
                 cursor: pointer
 
                 &:after
-                        content: ""
+                        content: ''
                         position: absolute
                         left: 0
                         top: -2px
                         width: 20px
                         height: 20px
                         border-radius: 50%
-                        border: 1px solid #C4C7CA
+                        border: 1px solid #c4c7ca
                         transition: border-color 0.3s ease-in-out
 
                 &:before
-                        content: ""
+                        content: ''
                         position: absolute
                         left: 5px
                         top: 3px
                         width: 10px
                         height: 10px
                         border-radius: 50%
-                        background: $black
+                        background: #000
                         opacity: 0
 
                 &:hover:after
-                        border-color: $black
+                        border-color: #000
 
         &__radio:checked + label
                 &:before
                         opacity: 1
-                        background-color: $rich-red
                 &:after
-                        border-color: $black
+                        border-color: #000
 
-        &__btn--buy
+
+        &__btn-buy
                 max-width: 240px
                 width: 100%
                 padding: 14px 0
@@ -463,9 +512,6 @@
                 cursor: pointer
                 text-align: center
 
-                &:focus
-                        outline: none
-
                 &:before
                         content: ''
                         position: absolute
@@ -473,18 +519,19 @@
                         top: 0
                         width: 100%
                         height: 100%
-                        background: #E52D2D
+                        background: #e52d2d
                         border-radius: 5px
                         z-index: -1
 
                 &:after
                         content: ''
                         position: absolute
-                        left: 0
-                        top: 0
+                        left: 50%
+                        top: 50%
+                        transform: translate(-50%, -50%)
                         width: 100%
                         height: 0
-                        background: #FF3C3C
+                        background: #ff3c3c
                         border-radius: 5px
                         z-index: -1
                         transition: height 0.3s ease-in-out
@@ -493,14 +540,13 @@
                         height: 100%
 
 
-                &__info
-                        color: #848a9a
+        &__info
+                color: #848a9a
 
-.error
+
+.error-text
         color: #fb7a7a
         +roboto(13px, 150%)
         display: block
         margin-top: 4px
         margin-bottom: 4px
-        opacity: 0
-        transition: 0.3s opacity, 0.3s visibility

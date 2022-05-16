@@ -39,11 +39,5 @@ $APPLICATION->IncludeComponent(
     []
 );?>
 <?
-$APPLICATION->IncludeComponent(
-    "custom:modal",
-    "", // если имя шаблона пустое - то подставляется .default
-    []
-);?>
-<?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');
 ?>
