@@ -1,6 +1,20 @@
-import React from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 
 const OrderItem = ({name, size, price, count, icon, img, removeBasket, id}) => {
+
+    const [newCount, setCount] = useState(count)
+
+
+    const inc = () => {
+        const increment = newCount + 1
+        setCount(increment)
+    }
+
+    const neinc = () => {
+        const antiincrement = newCount - 1
+        setCount(antiincrement)
+    }
+
     return (
         <>
             <li className="basket-modal__item">
@@ -17,12 +31,12 @@ const OrderItem = ({name, size, price, count, icon, img, removeBasket, id}) => {
                     <span className="basket-modal__size-pizza">{size} см</span>
                 </div>
                 <div className="basket-modal__wrap-count">
-                    <button className="basket-modal__minus disabled"></button>
-                    <input type="text" className="basket-modal__count" value={count} disabled/>
-                    <button className="basket-modal__plus"></button>
+                    <button className={newCount === 0 ? "basket-modal__minus disabled" : 'basket-modal__minus'} onClick={neinc}></button>
+                    <input type="text" className="basket-modal__count" value={newCount} disabled/>
+                    <button className="basket-modal__plus" onClick={inc}></button>
                 </div>
                 <div className="basket-modal__wrap-price">
-                    <span className="basket-modal__price">{price} руб</span>
+                    <span className="basket-modal__price">{price * newCount} руб</span>
                     <button className="basket-modal__remove-item" onClick={() => removeBasket(id)}></button>
                 </div>
             </li>

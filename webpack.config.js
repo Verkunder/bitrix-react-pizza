@@ -31,7 +31,6 @@ let config = {
         'project': './local/static/assets/sass/global/project.sass',
         'project-js': './local/static/assets/js/project.js',
         'catalog-list-r': './local/components/custom/catalog-list/templates/.default/script.jsx',
-        'react-modal': './local/components/custom/modal/templates/.default/script.jsx',
         'menu': './local/components/custom/menu/templates/.default/style.sass',
         'phone': './local/components/custom/phone/templates/.default/style.sass',
         'basket': './local/components/custom/basket/templates/.default/style.sass',

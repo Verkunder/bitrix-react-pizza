@@ -2,19 +2,7 @@ import React, {useState, useEffect} from 'react';
 import OrderItem from "./OrderItem";
 import ReactDOM from 'react-dom'
 
-const Modal = ({isVisible, onClose, basket}) => {
-
-    const [order, setOrder] = useState(basket)
-
-    const removeBasket = (id) => {
-
-        const remove = order.filter(({id: idx}) => {
-            console.log(id)
-            return idx !== id
-        })
-        setOrder(remove)
-    }
-
+const Modal = ({isVisible, onClose, basket, removeBasket}) => {
     if(!isVisible) return null
     return ReactDOM.createPortal(
         <div className="modal" >
@@ -24,7 +12,7 @@ const Modal = ({isVisible, onClose, basket}) => {
                 <button className="modal__close" onClick={onClose}></button>
                 <div className="wrap-basket">
                     <ul className="basket-modal">
-                        {order.map(({name, size, price, icon, img, count, id}) => <OrderItem id={id} removeBasket={removeBasket} img={img} price={price} name={name} icon={icon} size={size} count={count} />)}
+                        {basket.map(({name, size, price, icon, img, count, id}) => <OrderItem id={id} removeBasket={removeBasket} img={img} price={price} name={name} icon={icon} size={size} count={count} />)}
                     </ul>
                     <span className="sum-basket">
             <span className="sum-basket__text">Сумма заказа :</span>

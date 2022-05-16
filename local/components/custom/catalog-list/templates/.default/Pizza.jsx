@@ -14,6 +14,7 @@ const Pizza = () => {
     const [catalog, setCaatalog] = useState(Catalog)
     const [isModal, setModal] = useState(false);
     const [order, setOrder] = useState(Basket)
+    const [length, setLength] = useState(order.length)
 
     const addBusket = (name, size, price, icon, img) => {
         const sizeBusket = order.length + 1
@@ -26,8 +27,24 @@ const Pizza = () => {
             icon: icon,
             img: img
         })
+        console.log(newOrder)
         openModal()
     }
+
+    const removeBasket = (id) => {
+
+        const remove = order.filter(({id: idx}) => {
+            console.log(id)
+            return idx !== id
+        })
+        setOrder(remove)
+    }
+
+    useEffect(() => {
+        const ln = order.length
+        setLength(ln)
+        console.log(ln)
+    }, [order.length])
 
     const filt = (key) => {
         if (key === 'all') {
@@ -98,6 +115,7 @@ const Pizza = () => {
         <Modal isVisible={isModal}
                onClose={() => setModal(false)}
                basket={order}
+               removeBasket={removeBasket}
         />
     </>
     );
