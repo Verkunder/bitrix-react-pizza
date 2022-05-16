@@ -9,6 +9,9 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
     const [tel, setTel] = useState('')
     const [adres, setAdres] = useState('')
     const [complete, setComplete] = useState(false)
+    const [errorName, setNameError] = useState(false)
+    const [errorTel, setTelError] = useState(false)
+    const [errorAdres, setAdresError] = useState(false)
 
     const totalSum = () => {
         let s = 0
@@ -21,17 +24,30 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
 
     const changeName = (e) => {
         setName(e.target.value)
+        setNameError(false)
     }
     const changeTel = (e) => {
         setTel(e.target.value)
+        setTelError(false)
     }
     const changeAdres = (e) => {
         setAdres(e.target.value)
+        setAdresError(false)
     }
 
     const compliteOrder = () => {
         if (name, tel, adres != '') {
             setComplete(true)
+        } else {
+        if (name === '') {
+            setNameError(true)
+        }
+        if (tel === '') {
+            setTelError(true)
+        }
+        if (adres === '') {
+            setAdresError(true)
+        }
         }
     }
 
@@ -65,7 +81,7 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
                             name !== '' ? 'buy-form__wrap-input complete' : 'buy-form__wrap-input'
                         }>
                             <input type="text"
-                                   className="buy-form__input"
+                                   className={errorName ? "buy-form__input error" : 'buy-form__input'}
                                    name="firstname"
                                    id="firstname"
                                    data-validation="required"
@@ -83,7 +99,7 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
                                 value={tel}
                                 onChange={(e) => changeTel(e)}
                                 type="text"
-                                className="buy-form__input"
+                                className={errorTel ? "buy-form__input error" : 'buy-form__input'}
                                 name="phone"
                                 id="phone"
                                 data-validation="required"
@@ -101,7 +117,7 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
                                 value={adres}
                                 onChange={(e) =>changeAdres(e)}
                                 type="text"
-                                className="buy-form__input"
+                                className={errorAdres ? "buy-form__input error" : 'buy-form__input'}
                                 name="address"
                                 id="address"
                                 data-validation="required"
