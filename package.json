@@ -40,6 +40,9 @@
   },
   "homepage": "https://gitlab.com/webpractik/bitrix-start#readme",
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.7.0",
     "axios": "^0.27.2",
     "babel-plugin-transform-react-pure-components": "^3.1.2",
     "double-validate": "^2.0.1",

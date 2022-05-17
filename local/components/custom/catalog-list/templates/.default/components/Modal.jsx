@@ -1,6 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import OrderItem from "./OrderItem";
 import ReactDOM from 'react-dom'
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import ModalL from '@mui/material/Modal';
+import axios from 'axios'
 
 const Modal = ({isVisible, onClose, basket, removeBasket}) => {
     const [name, setName] = useState('')
@@ -10,15 +15,17 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
     const [errorName, setNameError] = useState(false)
     const [errorTel, setTelError] = useState(false)
     const [errorAdres, setAdresError] = useState(false)
+    const [orderReguest, setOrderRequest] = useState({})
 
     ///@TODO reduce
     const totalSum = () => {
         let s = 0
-        for (let i=0; i < basket.length; i++) {
+        for (let i = 0; i < basket.length; i++) {
             s += basket[i].price * basket[i].count
+            console.log(s)
+            setTotal(s)
         }
         return s
-        setTotal(s)
     }
     const [total, setTotal] = useState(totalSum)
 
@@ -26,8 +33,7 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
         setTotal(total => total + price)
     }
     const neincTotal = (price) => {
-        const prices = total - price
-        setTotal(prices)
+        setTotal(total => total - price)
     }
 
     const changeName = (e) => {
@@ -43,46 +49,80 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
         setAdresError(false)
     }
 
-    const compliteOrder = () => {
-        if (name, tel, adres !== '') {
-            setComplete(true)
-        } else {
-        if (name === '') {
-            setNameError(true)
-        }
-        if (tel === '') {
-            setTelError(true)
-        }
-        if (adres === '') {
-            setAdresError(true)
-        }
-        }
+    const removeOrder = () => {
+        onClose()
+        setComplete(false)
+        setAdres('')
+        setTel('')
+        setName('')
     }
 
-    const reload = () => {
-        location.reload()
+    const compliteOrder = () => {
+        if (name, tel, adres !== '') {
+            axios.get('local/static/json/complite.json')
+                 .then(({data}) => {
+                     setComplete(true)
+                     setOrderRequest(data)
+                     basket.splice(0, basket.length)
+                 })
+                 .catch((e) => {
+                    setComplete(true)
+                     setOrderRequest({
+                         text: "Ошибка при отправке.",
+                         title: "Пожалуйста повторите заказ"
+                     })
+                    console.log(e)
+                 })
+        } else {
+            if (name === '') {
+                setNameError(true)
+            }
+            if (tel === '') {
+                setTelError(true)
+            }
+            if (adres === '') {
+                setAdresError(true)
+            }
+        }
     }
 
     useEffect(() => {
         totalSum()
     }, [basket.length])
 
-    if(!isVisible) return null
+    if (!isVisible) return null
     return ReactDOM.createPortal(
-        <div className="modal" >
-            <div className="modal__bg" />
-            <div className="modal__wrapper" data-content="basketAndOrderForm" style={{display: complete === false ? '': 'none'}}>
-                <h3 className="modal__title">Ваш заказ</h3>
-                <button className="modal__close" onClick={onClose} />
-                <div className="wrap-basket">
-                    <ul className="basket-modal">
-                        {basket.map(({name, size, price, icon, img, count, id}) => <OrderItem key={id} neincTotal={neincTotal} incTotal={incTotal} id={id} removeBasket={removeBasket} img={img} price={price} name={name} icon={icon} size={size} count={count} />)}
-                    </ul>
-                    <span className="sum-basket">
+        <ModalL
+            open={isVisible}
+            onClose={onClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+            className="modal"
+        >
+            <div>
+                <div className="modal__wrapper" data-content="basketAndOrderForm"
+                     style={{display: complete === false ? '' : 'none'}}>
+                    <h3 className="modal__title">Ваш заказ</h3>
+                    <button className="modal__close" onClick={onClose}/>
+                    <div className="wrap-basket">
+                        <ul className="basket-modal">
+                            {basket.map(({name, size, price, icon, img, count, id}) => <OrderItem key={id}
+                                                                                                  neincTotal={neincTotal}
+                                                                                                  incTotal={incTotal}
+                                                                                                  id={id}
+                                                                                                  removeBasket={removeBasket}
+                                                                                                  img={img}
+                                                                                                  price={price}
+                                                                                                  name={name}
+                                                                                                  icon={icon}
+                                                                                                  size={size}
+                                                                                                  count={count}/>)}
+                        </ul>
+                        <span className="sum-basket">
             <span className="sum-basket__text">Сумма заказа :</span>
             <span className="sum-basket__sum">{total} руб</span>
         </span>
-                </div>
+                    </div>
                     <span className="buy-form__title">Контакты</span>
                     <div className="buy-form__wrap buy-form__wrap--two-сolumn">
                         <div className={
@@ -123,7 +163,7 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
                         <div className="buy-form__wrap-input">
                             <input
                                 value={adres}
-                                onChange={(e) =>changeAdres(e)}
+                                onChange={(e) => changeAdres(e)}
                                 type="text"
                                 className={errorAdres ? "buy-form__input error" : 'buy-form__input'}
                                 name="address"
@@ -152,13 +192,15 @@ const Modal = ({isVisible, onClose, basket, removeBasket}) => {
 
                     <p className="buy-form__info smallText">Нажимая кнопку «Оформить заказ» вы соглашаетесь с политикой
                         конфиденциальности</p>
+                </div>
+                <div style={{display: complete === true ? '' : 'none'}} className="modal__wrapper"
+                     data-content="successBuy">
+                    <button className="modal__close" onClick={removeOrder}/>
+                    <h3 className="modal__title--seccess">{orderReguest.title}</h3>
+                    <p className="modal__text">{orderReguest.text}</p>
+                </div>
             </div>
-            <div style={{display: complete === true ? '': 'none'}} className="modal__wrapper" data-content="successBuy" onClick={reload}>
-                <button className="modal__close" onClick={onClose}/>
-                <h3 className="modal__title--seccess">Ваш заказ принят!</h3>
-                <p className="modal__text">Наш оператор скоро свяжется с вами.</p>
-            </div>
-        </div>,
+        </ModalL>,
         document.getElementById('footer')
     );
 };

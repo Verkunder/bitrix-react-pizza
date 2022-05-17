@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import SizeBtn from "./components/SizeBtn";
 import axios from "axios";
-import Basket from '/local/static/json/basket.json'
+import Catalog from '/local/static/json/catalog.json'
 import Filter from "./components/Filter";
 import PizzaCatalogItem from "./components/PizzaCatalogItem";
 import Modal from "./components/Modal";
@@ -13,7 +13,7 @@ const Pizza = () => {
     const [status, setStatus] = useState(true)
     const [catalog, setCaatalog] = useState([])
     const [isModal, setModal] = useState(false);
-    const [order, setOrder] = useState(Basket)
+    const [order, setOrder] = useState([])
     const [length, setLength] = useState(order.length)
 
     const addBusket = (name, size, price, icon, img) => {
@@ -55,6 +55,14 @@ const Pizza = () => {
             .then(({data}) => {
                 setCaatalog(data)
                 setTimeout(() => {setLoad(false)}, 1500)
+            })
+            .catch((e) => {
+                setStatus(false)
+                console.log(e)
+            })
+        axios.get('local/static/json/basket.json')
+            .then(({data}) => {
+                setOrder(data)
             })
             .catch((e) => {
                 setStatus(false)
