@@ -14,10 +14,10 @@ const OrderItem = ({name, size, price, count, icon, img, removeBasket, id, incTo
     const neinc = () => {
         setCount(newCount => newCount - 1)
         const prices = newCount !== 0 ? price : price
-        console.log(newCount + ' ' + price)
+        if (newCount === 1) {
+            removeBasket(id)
+        }
         neincTotal(prices)
-
-
     }
 
     return (
